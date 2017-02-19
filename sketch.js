@@ -4,7 +4,53 @@ var backgroundColor = '#FFFFFF ';
 var goodColor = true;
 
 function setup() {
- createCanvas(windowWidth, windowHeight);
+  tracking.ColorTracker.registerColor('red', function(r, g, b) {
+    if (r > 200 && g < 50 && b < 50 ) {
+    return true;
+    }
+    return false;
+    }
+  );
+
+  tracking.ColorTracker.registerColor('green', function(r, g, b) {
+    if (r < 50 && g > 200 && b < 50 ) {
+    return true;
+    }
+    return false;
+    }
+  );
+
+  tracking.ColorTracker.registerColor('blue', function(r, g, b) {
+    if (r < 50 && g < 50 && b > 200 ) {
+    return true;
+    }
+    return false;
+    }
+  );
+
+  tracking.ColorTracker.registerColor('purple', function(r, g, b) {
+    if (r > 200 && g < 50 && b > 200 ) {
+    return true;
+    }
+    return false;
+    }
+  );
+
+  var colors = new tracking.ColorTracker(['purple','red','green','blue']);
+
+  colors.on('track', function(event) {
+    if (event.data.length === 0) {
+      // No colors were detected in this frame.
+    } else {
+      event.data.forEach(function(rect) {
+        console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+        backgroundColor = rect.color
+        });
+    }
+  });
+
+ tracking.track('#camera', colors, {camera: true});
+
  speech = new p5.SpeechRec();
  speech.continuous = true;
  speech.onResult = setColor;
