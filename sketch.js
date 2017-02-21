@@ -2,7 +2,7 @@ var speech;
 
 var backgroundColor = '#FFFFFF ';
 var goodColor = true;
-var threshold = 50;
+
 function setup() {
   var supportedColors = ['hotpink','red','green','blue','darkorange','aquamarine'];
 
@@ -44,9 +44,7 @@ function setup() {
   var colors = new tracking.ColorTracker(supportedColors);
 
   colors.on('track', function(event) {
-    if (event.data.length === 0) {
-      // No colors were detected in this frame.
-    } else {
+    if (event.data.length != 0) {
       event.data.forEach(function(rect) {
         console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
         backgroundColor = rect.color
@@ -69,27 +67,24 @@ function setColor(){
  var words = speech.resultString.split(' ');
  console.log('SPEECH', words);
 
- if (words.length >= 4 && words[0] == 'set' && words[1] == 'color' && words[2] == 'to') {
-   var colorName = words.splice(3).join('');
-   var colorVal = color(colorName);
-
-   console.log('Color: ',colorName);
-
-   if(isWhite(colorVal) && colorName != 'white'){
-      console.log('Bad Color:',colorName);
-      goodColor = false
-   }else{
-     goodColor = true;
+ if (words.length >= 1 && words[0] == 'Camille') {
+   var command = words.splice(1);
+   if(command[0] == 'add' ){
+     var pattern = command.splice(1).join('');
+     if(pattern == 'polkadots'){
+       console.log('Polka Dots');
+     }else if(pattern == 'stripes'){
+       console.log('Stripes');
+     }else if(pattern == 'stars'){
+       console.log('Stars');
+     }
+   }else if(command.length >= 3 && command[0]=='I' && command[1]=='love' && command[2]=='you'){
+      console.log('Hearts');
    }
 
-   if(goodColor) backgroundColor = colorName;
  }
 }
 
 function draw() {
  background(backgroundColor);
-}
-
-function isWhite(color){
-  return red(color) == 255 && green(color) == 255 && blue(color) == 255
 }
