@@ -2,41 +2,46 @@ var speech;
 
 var backgroundColor = '#FFFFFF ';
 var goodColor = true;
-
+var threshold = 50;
 function setup() {
+  var supportedColors = ['hotpink','red','green','blue','darkorange','aquamarine'];
+
+
   tracking.ColorTracker.registerColor('red', function(r, g, b) {
-    if (r > 200 && g < 50 && b < 50 ) {
-    return true;
-    }
-    return false;
-    }
+    return r > 200 && g < 50 && b < 50;
+  }
   );
 
   tracking.ColorTracker.registerColor('green', function(r, g, b) {
-    if (r < 50 && g > 200 && b < 50 ) {
-    return true;
-    }
-    return false;
-    }
+    return r < 50 && g > 78 && g < 178 && b < 50;
+  }
   );
 
   tracking.ColorTracker.registerColor('blue', function(r, g, b) {
-    if (r < 50 && g < 50 && b > 200 ) {
-    return true;
-    }
-    return false;
+    return r < 50 && g < 50 && b > 200;
+  }
+  );
+
+
+  tracking.ColorTracker.registerColor('hotpink', function(r, g, b) {
+    //255,105,180
+    return r > 200 && g > 50 && g < 150 && b > 130 && b < 230
+  }
+  );
+
+  tracking.ColorTracker.registerColor('darkorange', function(r, g, b) {
+    //255,140,0
+    return r > 200 && g > 90 && g < 190 && b < 50
     }
   );
 
-  tracking.ColorTracker.registerColor('purple', function(r, g, b) {
-    if (r > 200 && g < 50 && b > 200 ) {
-    return true;
-    }
-    return false;
+  tracking.ColorTracker.registerColor('aquamarine', function(r, g, b) {
+    //127,255,212
+    return r > 77 && r < 177 && g > 200 && b >200
     }
   );
 
-  var colors = new tracking.ColorTracker(['purple','red','green','blue']);
+  var colors = new tracking.ColorTracker(supportedColors);
 
   colors.on('track', function(event) {
     if (event.data.length === 0) {
