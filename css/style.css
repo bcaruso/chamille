@@ -1,0 +1,90 @@
+html, body {
+    height:100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+video{
+  border-radius: 5%;
+  position: fixed;
+  bottom:10px;
+  right:10px
+}
+
+canvas{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.container {
+  width: 100%; height: 100%;
+}
+
+svg {
+  position:fixed; top:0; left:0; height:100%; width:100%;
+}
+
+.green  { transition: background-color 2s ease; background-color: green;}
+.hotpink   { transition: background-color 2s ease; background-color: hotpink;}
+.blue   { transition: background-color 2s ease; background-color: blue;}
+.red    {transition: background-color 2s ease; background-color: red;}
+.darkorange {transition: background-color 2s ease; background-color: darkorange;}
+.aquamarine   {transition: background-color 2s ease; background-color: aquamarine;}
+
+.st0{fill:none;}
+.dark{fill:#000; opacity: .2;}
+.light{fill:#fff; opacity: .4;}
+.st8{fill:#E5FF76;stroke:#39B54A;stroke-miterlimit:10;}
+.stripes{transition: opacity .5s ease; fill:url(#patternStripes); opacity: 1}
+.dots{transition: opacity .5s ease;fill:url(#patternDots);opacity: 1}
+.stars{transition: opacity .5s ease;fill:url(#patternStars);opacity: 1}
+.hearts{transition: opacity .5s ease;fill:url(#patternHearts);opacity: 1}
+
+
+.disappear {transition: opacity .5s ease; opacity: 0;}
+.chamille-body{fill:none;}
+.back-foot {fill:#000; opacity: .2;}
+.front-foot{fill:#fff; opacity: .2;}
+.st17{stroke:#FFB0AB;stroke-width:8;stroke-miterlimit:10;}
+.st18{fill:#7A3B00;}
+.st19{fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+.eye-circle{fill:rgba(0,0,0,.2);stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+.st21{fill:#FFFFFF;}
+.st22{fill:#FFB0AB;}
+
+.eye-rotate {
+-webkit-animation: spin1 4s cubic-bezier(1, 0.2, 0.3, 1.0) 4s alternate infinite;
+-moz-animation: spin1 4s cubic-bezier(1, 0.2, 0.3, 1.0) 4s alternate infinite;
+-o-animation: spin1 4s cubic-bezier(1, 0.2, 0.3, 1.0) 4s alternate infinite;
+-ms-animation: spin1 4s cubic-bezier(1, 0.2, 0.3, 1.0) 4s alternate infinite;
+animation: spin1 4s cubic-bezier(1, 0.2, 0.3, 1.0) 4s alternate infinite;
+-webkit-transform-origin: 50% 50%;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+width: 256px;
+height: 256px;
+}
+
+@-webkit-keyframes spin1 {
+0% { -webkit-transform: rotate(0deg);}
+20% { -webkit-transform: rotate(360deg), translateY(-10px); }
+20% { -webkit-transform: rotate(45deg); }
+60% { -webkit-transform: rotate(270deg), translateY(-10px); }
+80% { -webkit-transform: rotate(90deg); }
+100% { -webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin1 {
+0% { -moz-transform: rotate(0deg);}
+100% { -moz-transform: rotate(360deg);}
+}
+@-o-keyframes spin1 {
+0% { -o-transform: rotate(0deg);}
+100% { -o-transform: rotate(360deg);}
+}
+@-ms-keyframes spin1 {
+0% { -ms-transform: rotate(0deg);}
+100% { -ms-transform: rotate(360deg);}
+}
