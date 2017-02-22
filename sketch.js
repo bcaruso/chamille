@@ -2,6 +2,7 @@ var speech;
 
 var backgroundColor = '#FFFFFF ';
 var goodColor = true;
+var fadeRate = .01;
 
 function setup() {
   var supportedColors = ['hotpink','red','green','blue','darkorange','aquamarine'];
@@ -74,26 +75,32 @@ function setColor(){
      var pattern = command.splice(1).join('').toLowerCase();
      if(pattern == 'polkadots' || pattern == 'dots' || pattern == 'circles'){
        console.log('Polka Dots');
-       document.getElementById("pattern").className.baseVal = 'dots';
+       changePattern('dots');
      }else if(pattern == 'stripes'){
        console.log('Stripes');
-       document.getElementById("pattern").className.baseVal = 'stripes';
+       changePattern('stripes');
      }else if(pattern == 'stars'){
        console.log('Stars');
-       document.getElementById("pattern").className.baseVal = 'stars';
+       changePattern('stars');
      }
 
    }else if(command.length >= 3 && command[0]=='I' && command[1]=='love' && command[2]=='you'){
       console.log('Hearts');
-      document.getElementById("pattern").className.baseVal = 'hearts';
+      changePattern('hearts');
    }else if(command.length >= 2 && command[0]=='clean' && command[1]=='up' || command[1]=='cleanup'){
       console.log('Clean Up');
-      document.getElementById("pattern").className.baseVal = 'disappear';
-      document.getElementById("svgContainer").className.baseVal = '';
+      changePattern('nopattern');
+      document.getElementById("svgContainer").className.baseVal = 'white';
    }
 
  }
 }
 
+function changePattern(p){
+  document.getElementById("pattern").style.opacity = 0;
+  setTimeout(function(){document.getElementById("pattern").className.baseVal = p;document.getElementById("pattern").style.opacity = 1},500);
+}
+
 function draw() {
+
 }
