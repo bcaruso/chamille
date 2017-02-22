@@ -32,18 +32,17 @@ svg {
 .red    {transition: background-color 2s ease; background-color: red;}
 .darkorange {transition: background-color 2s ease; background-color: darkorange;}
 .aquamarine   {transition: background-color 2s ease; background-color: aquamarine;}
+.white   {transition: background-color .5s ease; background-color: white;}
 
 .st0{fill:none;}
 .dark{fill:#000; opacity: .2;}
 .light{fill:#fff; opacity: .4;}
 .st8{fill:#E5FF76;stroke:#39B54A;stroke-miterlimit:10;}
-.stripes{transition: opacity .5s ease; fill:url(#patternStripes); opacity: 1}
-.dots{transition: opacity .5s ease;fill:url(#patternDots);opacity: 1}
-.stars{transition: opacity .5s ease;fill:url(#patternStars);opacity: 1}
-.hearts{transition: opacity .5s ease;fill:url(#patternHearts);opacity: 1}
-
-
-.disappear {transition: opacity .5s ease; opacity: 0;}
+.stripes{transition: opacity .5s ease; fill:url(#patternStripes);}
+.dots{transition: opacity .5s ease;fill:url(#patternDots);}
+.stars{transition: opacity .5s ease;fill:url(#patternStars);}
+.hearts{transition: opacity .5s ease;fill:url(#patternHearts);}
+.nopattern{transition: opacity .5s ease; fill:none}
 .chamille-body{fill:none;}
 .back-foot {fill:#000; opacity: .2;}
 .front-foot{fill:#fff; opacity: .2;}
