@@ -47,7 +47,7 @@ function setup() {
     if (event.data.length != 0) {
       event.data.forEach(function(rect) {
         console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
-        backgroundColor = rect.color
+        document.getElementById("svgContainer").className.baseVal = rect.color;
         });
     }
   });
@@ -60,6 +60,7 @@ function setup() {
  speech.start();
 
  createCanvas(windowWidth, windowHeight); // Use the full browser window
+
  // Additional setup goes here
 }
 
@@ -70,21 +71,29 @@ function setColor(){
  if (words.length >= 1 && words[0] == 'Camille') {
    var command = words.splice(1);
    if(command[0] == 'add' ){
-     var pattern = command.splice(1).join('');
-     if(pattern == 'polkadots'){
+     var pattern = command.splice(1).join('').toLowerCase();
+     if(pattern == 'polkadots' || pattern == 'dots' || pattern == 'circles'){
        console.log('Polka Dots');
+       document.getElementById("pattern").className.baseVal = 'dots';
      }else if(pattern == 'stripes'){
        console.log('Stripes');
+       document.getElementById("pattern").className.baseVal = 'stripes';
      }else if(pattern == 'stars'){
        console.log('Stars');
+       document.getElementById("pattern").className.baseVal = 'stars';
      }
+
    }else if(command.length >= 3 && command[0]=='I' && command[1]=='love' && command[2]=='you'){
       console.log('Hearts');
+      document.getElementById("pattern").className.baseVal = 'hearts';
+   }else if(command.length >= 2 && command[0]=='clean' && command[1]=='up' || command[1]=='cleanup'){
+      console.log('Clean Up');
+      document.getElementById("pattern").className.baseVal = 'disappear';
+      document.getElementById("svgContainer").className.baseVal = '';
    }
 
  }
 }
 
 function draw() {
- background(backgroundColor);
 }
