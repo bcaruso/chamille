@@ -1,9 +1,5 @@
 var speech;
 
-var backgroundColor = '#FFFFFF ';
-var goodColor = true;
-var fadeRate = .01;
-
 function setup() {
   var supportedColors = ['hotpink','red','green','blue','darkorange','aquamarine'];
 
@@ -102,5 +98,5 @@ function changePattern(p){
 }
 
 function draw() {
-
+  //Doing alot of stuff with CSS and SVGs.
 }
